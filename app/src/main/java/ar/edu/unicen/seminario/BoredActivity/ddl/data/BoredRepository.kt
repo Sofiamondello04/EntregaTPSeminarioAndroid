@@ -1,6 +1,6 @@
-package ar.edu.unicen.seminario.ddl.data
+package ar.edu.unicen.seminario.BoredActivity.ddl.data
 
-import ar.edu.unicen.seminario.ddl.models.ActivityRecomendation
+import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendation
 import javax.inject.Inject
 
 class BoredRepository  @Inject constructor(

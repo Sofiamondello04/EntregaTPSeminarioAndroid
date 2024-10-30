@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.old
+package ar.edu.unicen.seminario.old.Clases1a12
 
 /*implementa interfaz parcelable- la alternativa es implementar el plugin y funciona solo cuando en
 * el constructor recibe solo atributos y SOLO salva los atributos que estan definidos en la clase,

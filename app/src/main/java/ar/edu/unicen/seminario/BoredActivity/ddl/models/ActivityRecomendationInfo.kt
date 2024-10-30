@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.ddl.models
+package ar.edu.unicen.seminario.BoredActivity.ddl.models
 
 class ActivityRecomendationInfo(
     val type: String,

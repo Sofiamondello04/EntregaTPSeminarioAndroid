@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.old
+package ar.edu.unicen.seminario.old.Clases1a12
 
 /*definir pantalla en el manifest, sino Android no la conoce*/
 /*class RedActivity: AppCompatActivity() {

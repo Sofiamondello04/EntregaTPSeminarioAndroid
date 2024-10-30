@@ -1,7 +1,7 @@
-package ar.edu.unicen.seminario.dl
+package ar.edu.unicen.seminario.BoredActivity.dl
 
 import ar.edu.unicen.seminario.BuildConfig
-import ar.edu.unicen.seminario.ddl.data.BoredApi
+import ar.edu.unicen.seminario.BoredActivity.ddl.data.BoredApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.old.ddl
+package ar.edu.unicen.seminario.old.Clases1a12.ddl
 
 import dagger.hilt.android.scopes.ViewModelScoped
 import javax.inject.Inject

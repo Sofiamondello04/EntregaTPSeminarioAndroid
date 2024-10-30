@@ -1,13 +1,12 @@
-package ar.edu.unicen.seminario.ui
+package ar.edu.unicen.seminario.BoredActivity.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ar.edu.unicen.seminario.ddl.data.BoredRepository
-import ar.edu.unicen.seminario.ddl.models.ActivityRecomendation
+import ar.edu.unicen.seminario.BoredActivity.ddl.data.BoredRepository
+import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendation
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -1,7 +1,7 @@
-package ar.edu.unicen.seminario.old.ddl
+package ar.edu.unicen.seminario.old.Clases1a12.ddl
 
 import android.content.SharedPreferences
-import ar.edu.unicen.seminario.old.di.CounterSharedPreference
+import ar.edu.unicen.seminario.old.Clases1a12.di.CounterSharedPreference
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay

@@ -1,7 +1,6 @@
-package ar.edu.unicen.seminario.ui
+package ar.edu.unicen.seminario.BoredActivity.ui
 
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.core.widget.addTextChangedListener
@@ -10,8 +9,6 @@ import ar.edu.unicen.seminario.databinding.ActivityBoredBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.delay
 
 
 @AndroidEntryPoint

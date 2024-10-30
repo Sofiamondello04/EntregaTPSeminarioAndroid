@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.old.di
+package ar.edu.unicen.seminario.old.Clases1a12.di
 
 import javax.inject.Qualifier
 
