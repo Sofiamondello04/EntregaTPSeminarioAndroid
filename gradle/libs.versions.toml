@@ -14,6 +14,7 @@ hiltVersion = "2.51.1"
 kaptVersion = "2.0.20"
 retrofit = "2.11.0"
 anyChart= "1.1.5"
+glide= "4.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -29,7 +30,7 @@ hilt = {module= "com.google.dagger:hilt-android", version.ref = "hiltVersion"}
 hilt-compiler = {module = "com.google.dagger:hilt-compiler", version.ref = "hiltVersion"}
 retrofit = {module= "com.squareup.retrofit2:retrofit", version.ref = "retrofit"}
 retrofit_gson ={module= "com.squareup.retrofit2:converter-gson", version.ref = "retrofit"}
-
+glide ={module= "com.github.bumptech.glide:glide", version.ref = "glide"}
 
 anyChart ={module= "com.github.AnyChart:AnyChart-Android", version.ref = "anyChart"}
 

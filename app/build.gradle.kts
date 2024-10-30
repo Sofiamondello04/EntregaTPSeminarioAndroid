@@ -98,10 +98,14 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(libs.hilt)
-    kapt(libs.hilt.compiler)
     implementation(libs.retrofit)
     implementation(libs.retrofit.gson)
+    implementation(libs.glide)
+
+    implementation(libs.hilt)
+    kapt(libs.hilt.compiler)
+
 
     implementation(libs.anyChart)
+
 }

@@ -7,6 +7,16 @@
     android:layout_height="wrap_content"
     tools:context=".ui.UserAdapter">
 
+    <ImageView
+        android:id="@+id/user_avatar"
+        android:layout_width="40.dp"
+        android:layout_height="40.dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:contentDescription="null"
+        />
+
     <TextView
         android:id="@+id/user_name"
         android:layout_width="wrap_content"
@@ -17,10 +27,13 @@
         android:textSize="24.sp"
         android:textAlignment="textStart"
         tools:text="John Doe"
+        android:layout_marginStart="16.dp"
         app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/user_avatar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+
 
     <TextView
         android:id="@+id/user_email"

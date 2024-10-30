@@ -1,6 +1,7 @@
 package ar.edu.unicen.seminario.ui
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -27,7 +28,7 @@ class UserActivity : AppCompatActivity() {
     }
     private fun subscribeToUi () {
         binding.loadUsersButton.setOnClickListener {
-            viewModel.getUsers(100)
+            viewModel.getUsers(300)
         }
     }
 
@@ -45,7 +46,12 @@ class UserActivity : AppCompatActivity() {
         }.launchIn(lifecycleScope)
 
         viewModel.users.onEach { users ->
-            binding.usersList.adapter = UserAdapter(users ?: emptyList())
+            binding.usersList.adapter = UserAdapter(
+                users= users ?: emptyList(),
+                onUserClick = { user ->
+                Toast.makeText(this, "User ${user.completeName} clicked" , Toast.LENGTH_SHORT).show()
+                }
+            )
         }.launchIn(lifecycleScope)
 
         viewModel.error.onEach { error ->
