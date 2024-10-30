@@ -1,6 +1,5 @@
 package ar.edu.unicen.seminario.ui
 
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,10 +7,7 @@ import ar.edu.unicen.seminario.R
 import ar.edu.unicen.seminario.databinding.ListItemUserBinding
 import ar.edu.unicen.seminario.ddl.models.User
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
+
 
 class UserAdapter(
     private val users: List<User>,
