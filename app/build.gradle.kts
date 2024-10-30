@@ -54,7 +54,7 @@ android {
             applicationIdSuffix= ".develop"
             versionNameSuffix = "-develop"
             dimension = "enviroment"
-            buildConfigField("String", "BASE_URL", "\"https://bored.api.lewagon.com/api/\"")
+           /* buildConfigField("String", "BASE_URL", "\"https://randomuser.me/\"")*/
         }
         create("production") {
             versionNameSuffix = "-production"

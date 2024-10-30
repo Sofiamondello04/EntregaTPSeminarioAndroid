@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.BoredActivity.ui
+/*package ar.edu.unicen.seminario.old.BoredActivity.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -76,3 +76,4 @@ class BoredActivity : AppCompatActivity() {
 }
 
 
+*/

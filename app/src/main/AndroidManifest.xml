@@ -14,7 +14,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Seminario"
         tools:targetApi="31">
+
         <activity
+            android:name=".ui.UserActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+       <!-- <activity
             android:name=".BoredActivity.ui.BoredActivity"
             android:exported="true">
 
@@ -22,7 +33,7 @@
                  <action android:name="android.intent.action.MAIN" />
                  <category android:name="android.intent.category.LAUNCHER" />
              </intent-filter>
-         </activity>
+         </activity>-->
 
         <!-- <activity
              android:name=".RedActivity"
@@ -35,7 +46,7 @@
          </activity>
 
          <activity
-             android:name=".ui.BoredActivity"
+             android:name=".ui.UserActivity"
              android:exported="true">
          </activity>
 

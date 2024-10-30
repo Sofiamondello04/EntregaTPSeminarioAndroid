@@ -1,6 +1,6 @@
-package ar.edu.unicen.seminario.BoredActivity.ddl.data
+/*package ar.edu.unicen.seminario.old.BoredActivity.ddl.data
 
-import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendation
+import ar.edu.unicen.seminario.old.BoredActivity.ddl.models.ActivityRecomendation
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -25,4 +25,4 @@ class BoredRemoteDataSourse @Inject constructor(
 
         }
     }
-}
+}*/

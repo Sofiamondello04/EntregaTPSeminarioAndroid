@@ -1,8 +1,8 @@
-package ar.edu.unicen.seminario.BoredActivity.ddl.data.dto
+/*package ar.edu.unicen.seminario.old.BoredActivity.ddl.data.dto
 
 import androidx.annotation.Keep
-import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendation
-import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendationInfo
+import ar.edu.unicen.seminario.old.BoredActivity.ddl.models.ActivityRecomendation
+import ar.edu.unicen.seminario.old.BoredActivity.ddl.models.ActivityRecomendationInfo
 import com.google.gson.annotations.SerializedName
 
 @Keep
@@ -39,4 +39,4 @@ class ActivityRecomendationDto(
 
         )
     }
-}
+}*/

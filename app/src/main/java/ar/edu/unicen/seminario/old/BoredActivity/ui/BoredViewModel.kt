@@ -1,9 +1,9 @@
-package ar.edu.unicen.seminario.BoredActivity.ui
+/*package ar.edu.unicen.seminario.old.BoredActivity.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import ar.edu.unicen.seminario.BoredActivity.ddl.data.BoredRepository
-import ar.edu.unicen.seminario.BoredActivity.ddl.models.ActivityRecomendation
+import ar.edu.unicen.seminario.old.BoredActivity.ddl.data.BoredRepository
+import ar.edu.unicen.seminario.old.BoredActivity.ddl.models.ActivityRecomendation
 import dagger.hilt.android.lifecycle.HiltViewModel
 
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -45,3 +45,4 @@ class BoredViewModel @Inject constructor(
 }
 
 
+*/

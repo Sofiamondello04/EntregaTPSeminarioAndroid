@@ -5,7 +5,7 @@
     android:id="@+id/mainConView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BoredActivity.ui.BoredActivity">
+    tools:context=".old.BoredActivity.ui.BoredActivity">
 
     <EditText
         android:id="@+id/participante_edit_text"

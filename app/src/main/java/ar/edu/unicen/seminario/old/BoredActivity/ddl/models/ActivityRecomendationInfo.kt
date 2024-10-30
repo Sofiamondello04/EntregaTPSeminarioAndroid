@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.BoredActivity.ddl.models
+/*package ar.edu.unicen.seminario.old.BoredActivity.ddl.models
 
 class ActivityRecomendationInfo(
     val type: String,
@@ -7,4 +7,4 @@ class ActivityRecomendationInfo(
     val link: String,
     val accessibility: Double
 ) {
-}
+}*/

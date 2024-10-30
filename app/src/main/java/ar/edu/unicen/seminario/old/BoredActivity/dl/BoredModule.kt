@@ -1,4 +1,4 @@
-package ar.edu.unicen.seminario.BoredActivity.dl
+/*package ar.edu.unicen.seminario.BoredActivity.dl
 
 import ar.edu.unicen.seminario.BuildConfig
 import ar.edu.unicen.seminario.BoredActivity.ddl.data.BoredApi
@@ -13,10 +13,15 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn(SingletonComponent::class)
 class BoredModule {
 
-    @Provides
+    Dejo comentado todo para que no genere conflicto con la clase UserModule
+
+   @Provides
+
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl(BuildConfig.BASE_URL)
+            /*dejo la url harcodeada para seguir con la clase de user*/
+            .baseUrl("https:// bored. api. lewagon. com/ api/")
+            /*.baseUrl(BuildConfig.BASE_URL)*/
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
@@ -30,4 +35,4 @@ class BoredModule {
     }
 
 
-}
+}*/
