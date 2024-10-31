@@ -54,21 +54,8 @@ android {
             applicationIdSuffix= ".develop"
             versionNameSuffix = "-develop"
             dimension = "enviroment"
-            buildConfigField("String", "BASE_URL", "\"https://randomuser.me/\"")
-        }
-        create("production") {
-            versionNameSuffix = "-production"
-            dimension = "enviroment"
-        }
-        create("free") {
-            versionNameSuffix = "-free"
-            dimension = "type"
-            buildConfigField("Boolean", "COMPLETE_ACCESS", "false")
-        }
-        create("pro") {
-            versionNameSuffix = "-free"
-            dimension = "type"
-            buildConfigField("Boolean", "COMPLETE_ACCESS", "true")
+            buildConfigField("String", "BASE_URL", "\"https://api.themoviedb.org/3/\"")
+            buildConfigField("String", "API_KEY", "\"d4e783aad77c6fa605beb8d3fffb0d6a\"")
         }
     }
 

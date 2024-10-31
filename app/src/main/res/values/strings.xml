@@ -8,5 +8,5 @@
     <string name="inicial">Inicial</string>
     <string name="reset">Reset</string>
     <string name="recommend">Recommend</string>
-    <string name="Load_users">Load users</string>
+    <string name="Load_movie">Load movie</string>
 </resources>

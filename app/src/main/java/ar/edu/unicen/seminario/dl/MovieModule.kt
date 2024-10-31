@@ -1,7 +1,7 @@
 package ar.edu.unicen.seminario.dl
 
 import ar.edu.unicen.seminario.BuildConfig
-import ar.edu.unicen.seminario.ddl.data.UserApi
+import ar.edu.unicen.seminario.ddl.data.MovieApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Module
 @InstallIn(SingletonComponent::class)
-class UserModule {
+class MovieModule {
 
     @Provides
     fun provideRetrofit(): Retrofit {
@@ -25,8 +25,8 @@ class UserModule {
     @Provides
     fun provideUserApi(
         retrofit: Retrofit
-    ): UserApi {
-        return retrofit.create(UserApi::class.java)
+    ): MovieApi {
+        return retrofit.create(MovieApi::class.java)
     }
 
 
