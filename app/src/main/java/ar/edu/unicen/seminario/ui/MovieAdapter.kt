@@ -13,34 +13,33 @@ import com.bumptech.glide.Glide
 class MovieAdapter(
     private val movies: List<Movie>,
     private val onUserClick: (Movie) ->Unit
-): RecyclerView.Adapter<MovieAdapter.UserViewHolder> () {
+): RecyclerView.Adapter<MovieAdapter.MovieViewHolder> () {
 
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {
         val layoutInflater=  LayoutInflater.from(parent.context)
         val binding= ListItemMovieBinding.inflate(layoutInflater, parent, false)
-        return UserViewHolder(binding)
+        return MovieViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        val user= movies[position]
-        holder.bind(user)
+    override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
+        val movie= movies[position]
+        holder.bind(movie)
     }
     override fun getItemCount(): Int {
         return movies.size
     }
 
-    inner class UserViewHolder(
+    inner class MovieViewHolder(
         private val binding: ListItemMovieBinding
     ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
-            /*binding.userName.text= movie.name
-            binding.userEmail.text= movie.email*/
-
+            binding.movieTitle.text = movie.title
+            binding.movieOverview.text = movie.overview
             Glide.with(itemView.context)
-                .load("https://image.tmdb.org/t/p/w500${movie.poster_path}") // Asegúrate de que la URL esté bien formada
+                .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
                 .into(binding.moviePoster)
 
 
