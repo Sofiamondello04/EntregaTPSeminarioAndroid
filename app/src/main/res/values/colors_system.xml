@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="textPrimaryColor">#050505</color>
+    <color name="BrandColor">#53446D</color>
+    <color name="textErrorColor">#F44336</color>
+</resources>
