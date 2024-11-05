@@ -22,18 +22,42 @@ class MovieRemoteDataSourse @Inject constructor(
 
                 if (response.isSuccessful) {
                     // Procesa la respuesta aquí
+                    // return@withContext response.body()?.results?.map {it.toMovie()
+                    return@withContext response.body()?.results?.map {
+                        Log.d("MovieRepository", "Movie ID: ${it.id}, Title: ${it.title}, Overview: ${it.overview}, Poster Path: ${it.poster_path}")
+                        Movie(
+                            id = it.id,  // Asegúrate de que el id es correcto
+                            title = it.title,
+                            overview = it.overview,
+                            poster_path = it.poster_path
+                        )
+
+                    }?: emptyList()
+
                 } else {
                     Log.e("MovieRemoteDataSourse", "Error: ${response.code()} - ${response.message()}")
                     return@withContext null
                 }
-
-
-                return@withContext response.body()?.results?.map {it.toMovie()
-
-            }
             }
             catch (e: Exception) {
 
+                e.printStackTrace()
+                return@withContext null
+            }
+
+        }
+    }
+
+    suspend fun  getMovie (
+        id: Int
+    ): Movie? {
+        return withContext(Dispatchers.IO) {
+            try {
+
+                val response = movieApi.getMovie(id)
+                return@withContext response.body()?.toMovieDetail()
+            }
+            catch (e: Exception) {
                 e.printStackTrace()
                 return@withContext null
             }

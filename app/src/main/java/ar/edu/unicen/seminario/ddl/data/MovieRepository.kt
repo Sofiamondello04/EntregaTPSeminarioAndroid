@@ -15,5 +15,11 @@ class MovieRepository  @Inject constructor(
 
     }
 
+    suspend fun getMovie(
+        id: Int
+    ) : Movie? {
+        return movieRemoteDataSourse.getMovie(id)
+    }
+
 
 }

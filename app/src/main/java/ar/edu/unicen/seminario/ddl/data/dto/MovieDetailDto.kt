@@ -5,9 +5,11 @@ import ar.edu.unicen.seminario.ddl.models.Movie
 import com.google.gson.annotations.SerializedName
 
 @Keep
-class MovieDto(
-    @SerializedName("original_title")
-    val original_title: String,
+class MovieDetailDto(
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("title")
+    val title: String,
     @SerializedName("poster_path")
     val poster_path: String,
     @SerializedName("overview")
@@ -15,12 +17,11 @@ class MovieDto(
 
 ) {
 
-    fun toMovie(): Movie {
+    fun toMovieDetail(): Movie {
         return Movie(
-            title= original_title,
+            id= id,
+            title= title,
             poster_path = poster_path,
             overview= overview)
-
-
     }
 }

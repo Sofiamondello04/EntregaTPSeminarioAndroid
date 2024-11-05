@@ -1,19 +1,20 @@
 package ar.edu.unicen.seminario.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ar.edu.unicen.seminario.R
+import ar.edu.unicen.seminario.databinding.ActivityMovieDetailBinding
 import ar.edu.unicen.seminario.databinding.ListItemMovieBinding
 
 import ar.edu.unicen.seminario.ddl.models.Movie
 import com.bumptech.glide.Glide
 
 
-class MovieAdapter(
+class PopularMoviesAdapter(
     private val movies: List<Movie>,
-    private val onUserClick: (Movie) ->Unit
-): RecyclerView.Adapter<MovieAdapter.MovieViewHolder> () {
+    private val onUserClick: (Movie) -> Unit
+): RecyclerView.Adapter<PopularMoviesAdapter.MovieViewHolder> () {
 
 
 
@@ -25,6 +26,7 @@ class MovieAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie= movies[position]
+        Log.d("PopularMoviesAdapter", "Movie at position $position: $movie")
         holder.bind(movie)
     }
     override fun getItemCount(): Int {
@@ -36,6 +38,7 @@ class MovieAdapter(
     ): RecyclerView.ViewHolder(binding.root) {
 
         fun bind(movie: Movie) {
+
             binding.movieTitle.text = movie.title
             binding.movieOverview.text = movie.overview
             Glide.with(itemView.context)
@@ -44,12 +47,16 @@ class MovieAdapter(
 
 
             binding.root.setOnClickListener {
-                onUserClick(movie)
+                Log.d("PopularMoviesAdapter", "Clicked movie ID: ${movie.id}")
+                onUserClick(movie) // Pasar el ID de la película
             }
         }
 
     }
 }
+
+
+
 
 
 
