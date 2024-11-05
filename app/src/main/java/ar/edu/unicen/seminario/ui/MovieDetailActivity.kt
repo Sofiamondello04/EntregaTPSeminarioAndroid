@@ -68,7 +68,7 @@ class MovieDetailActivity : AppCompatActivity() {
     private fun observeImage() {
         viewModel.image.onEach { config ->
             config?.let {
-                val baseUrl = it.base_url.replace("http://", "https://")
+                val baseUrl = "https://image.tmdb.org"
                 val movieDetail = viewModel.movieDetails.value
 
                 movieDetail?.let { movie ->
