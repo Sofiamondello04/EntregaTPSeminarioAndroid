@@ -1,5 +1,6 @@
 package ar.edu.unicen.seminario.ddl.data
 
+import ar.edu.unicen.seminario.ddl.data.dto.ImageDto
 import ar.edu.unicen.seminario.ddl.data.dto.Constants
 import ar.edu.unicen.seminario.ddl.data.dto.MovieDetailDto
 import ar.edu.unicen.seminario.ddl.data.dto.PopularMoviesResponseDto
@@ -27,6 +28,11 @@ interface MovieApi {
         @Path("movie_id") id: Int,
         @Query("api_key") apiKey: String = Constants.API_KEY
     ): Response<MovieDetailDto>
+
+    @GET("configuration")
+    suspend fun getConfiguration(
+        @Query("api_key") apiKey: String = Constants.API_KEY
+    ): Response<ImageDto>
 
 
 

@@ -33,7 +33,9 @@ class MovieDetailActivity : AppCompatActivity() {
 
         if (id != -1) {
             viewModel.getMovieDetail(id)
+            viewModel.getImage()
             observeMovieDetails()
+            observeImage()
         }
 
 
@@ -52,12 +54,36 @@ class MovieDetailActivity : AppCompatActivity() {
                 binding.movieVoteAverage.text = movie.vote_average.toString()
 
 
-                val posterUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
+               /* val posterUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
 
 
                 Glide.with(this)
                     .load(posterUrl)
-                    .into(binding.moviePoster)
+                    .into(binding.moviePoster)*/
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+    private fun observeImage() {
+        viewModel.image.onEach { config ->
+            config?.let {
+                // Asegúrate de que los valores estén disponibles
+                val baseUrl = it.base_url.replace("http://", "https://")
+                val posterSize = it.poster_sizes?.firstOrNull() ?: "w500"  // Si no tienes el tamaño, usa uno por defecto
+
+                // Ahora construimos la URL completa para el póster
+                val movieDetail = viewModel.movieDetails.value
+                movieDetail?.let { movie ->
+                    val posterPath = movie.poster_path
+                    val posterUrl = "$baseUrl/t/p/$posterSize$posterPath"
+
+                    Log.d("MovieDetailActivity", "URL del póster: $posterUrl")
+
+                    // Cargar la imagen con Glide
+                    Glide.with(this)
+                        .load(posterUrl)
+                        .into(binding.moviePoster)
+                }
             }
         }.launchIn(lifecycleScope)
     }

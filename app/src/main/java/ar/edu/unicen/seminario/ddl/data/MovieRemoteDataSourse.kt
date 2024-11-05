@@ -2,6 +2,7 @@ package ar.edu.unicen.seminario.ddl.data
 
 import android.util.Log
 import ar.edu.unicen.seminario.BuildConfig
+import ar.edu.unicen.seminario.ddl.models.Image
 import ar.edu.unicen.seminario.ddl.models.Movie
 import ar.edu.unicen.seminario.ddl.models.MovieDetail
 import kotlinx.coroutines.Dispatchers
@@ -55,6 +56,31 @@ class MovieRemoteDataSourse @Inject constructor(
                 return@withContext null
             }
 
+        }
+    }
+
+    suspend fun getImage(
+
+    ): Image? {
+        return withContext(Dispatchers.IO) {
+            try {
+                // Llamada a la API de configuración para obtener la base_url y el tamaño de la imagen
+
+                // Log para verificar que estamos llamando al endpoint correctamente
+                Log.d("MovieRemoteDataSource", "Llamando al endpoint de configuración para obtener imágenes.")
+
+                val response = movieApi.getConfiguration()
+                if (response.isSuccessful) {
+                    Log.d("MovieRemoteDataSource", "Configuración de imagen obtenida exitosamente: ${response.body()}")
+                    return@withContext response.body()?.images
+                } else {
+                    Log.e("MovieRemoteDataSource", "Error: ${response.code()} - ${response.message()}")
+                    return@withContext null
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+                return@withContext null
+            }
         }
     }
 }

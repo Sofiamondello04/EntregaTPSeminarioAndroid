@@ -1,5 +1,6 @@
 package ar.edu.unicen.seminario.ddl.data
 
+import ar.edu.unicen.seminario.ddl.models.Image
 import ar.edu.unicen.seminario.ddl.models.Movie
 import ar.edu.unicen.seminario.ddl.models.MovieDetail
 import javax.inject.Inject
@@ -20,6 +21,12 @@ class MovieRepository  @Inject constructor(
         id: Int
     ) : MovieDetail? {
         return movieRemoteDataSourse.getMovie(id)
+    }
+
+    suspend fun getImage(
+
+    ): Image? {
+        return movieRemoteDataSourse.getImage()
     }
 
 
