@@ -36,8 +36,10 @@ class PopularMoviesActivity : AppCompatActivity() {
         viewModel.loading.onEach { loading ->
             if (loading) {
                 binding.progressBar.visibility = android.view.View.VISIBLE
+                binding.titleHome.visibility =android.view.View.INVISIBLE
             } else {
                 binding.progressBar.visibility = android.view.View.INVISIBLE
+                binding.titleHome.visibility= android.view.View.VISIBLE
             }
         }.launchIn(lifecycleScope)
 

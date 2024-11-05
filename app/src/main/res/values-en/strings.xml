@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MoviesDB</string>
+    <string name="title_home">Populars Movies </string>
     <string name="back_button">Back</string>
     <string name="retry_button">Retry</string>
     <string name="description">Summary</string>

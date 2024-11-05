@@ -1,7 +1,7 @@
 package ar.edu.unicen.seminario.ddl.data
 
 import ar.edu.unicen.seminario.ddl.data.dto.ImageDto
-import ar.edu.unicen.seminario.ddl.data.dto.Constants
+import ar.edu.unicen.seminario.ddl.Constants
 import ar.edu.unicen.seminario.ddl.data.dto.MovieDetailDto
 import ar.edu.unicen.seminario.ddl.data.dto.PopularMoviesResponseDto
 import retrofit2.Response
@@ -13,20 +13,19 @@ interface MovieApi {
 
     @GET("movie/popular")
     suspend fun getPopularMovies(
-        @Query("language") language: String = "en-US",
         @Query("page") page: Int = 1,
-        @Query("api_key") apiKey: String = Constants.API_KEY
+       // @Query("api_key") apiKey: String = Constants.API_KEY
     ): Response<PopularMoviesResponseDto>
 
     @GET("movie/{movie_id}")
     suspend fun getMovie(
         @Path("movie_id") id: Int,
-        @Query("api_key") apiKey: String = Constants.API_KEY
+        //@Query("api_key") apiKey: String = Constants.API_KEY
     ): Response<MovieDetailDto>
 
     @GET("configuration")
     suspend fun getConfiguration(
-        @Query("api_key") apiKey: String = Constants.API_KEY
+      //  @Query("api_key") apiKey: String = Constants.API_KEY
     ): Response<ImageDto>
 
 

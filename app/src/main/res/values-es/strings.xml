@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PeliculasDB</string>
+    <string name="title_home">Peliculas Populares</string>
     <string name="back_button">Volver</string>
     <string name="retry_button">Reintentar</string>
     <string name="description">Descripcion</string>
