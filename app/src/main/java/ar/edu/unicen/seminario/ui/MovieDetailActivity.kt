@@ -50,11 +50,14 @@ class MovieDetailActivity : AppCompatActivity() {
                 binding.movieOverview.text = movie.overview
                 binding.movieGenres.text = movie.genres.joinToString(", ")
                 binding.movieVoteAverage.text = movie.vote_average.toString()
+
+
+                val posterUrl = "https://image.tmdb.org/t/p/w500${movie.poster_path}"
+
+
                 Glide.with(this)
-                    .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
+                    .load(posterUrl)
                     .into(binding.moviePoster)
-            } else {
-                Toast.makeText(this, "No se encontraron detalles de la película", Toast.LENGTH_SHORT).show()
             }
         }.launchIn(lifecycleScope)
     }
