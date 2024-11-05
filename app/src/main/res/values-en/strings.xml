@@ -2,4 +2,10 @@
 <resources>
     <string name="app_name">MoviesDB</string>
     <string name="back_button">Back</string>
+    <string name="retry_button">Retry</string>
+    <string name="description">Summary</string>
+    <string name="genres">Genres</string>
+    <string name="vote">Vote Average</string>
+    <string name="error_load_movie">Error on load movie</string>
+    <string name="error_load_movies">Error on load movies</string>
 </resources>

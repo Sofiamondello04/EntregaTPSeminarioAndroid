@@ -28,7 +28,7 @@ class PopularMoviesActivity : AppCompatActivity() {
         loadMovies()
 
         binding.retryButton.setOnClickListener {
-            loadMovies()  // Reintentar la carga de películas populares
+            loadMovies()
         }
     }
 
@@ -46,16 +46,8 @@ class PopularMoviesActivity : AppCompatActivity() {
                 binding.recyclerView.layoutManager = LinearLayoutManager(this)
                 binding.recyclerView.adapter = PopularMoviesAdapter(movies ?: emptyList()) { movie ->
 
-                    Log.d(
-                        "PopularMoviesAdapter",
-                        "Clicked movie ID: ${movie.id}"
-                    )  // Log para depurar
                     val intent = Intent(this, MovieDetailActivity::class.java).apply {
                         putExtra("id", movie.id)
-                        Log.d("PopularMoviesActivity", "ID de la película: ${movie.id}")
-                      //  putExtra("movie_title", movie.title)
-                       // putExtra("movie_overview", movie.overview)
-                      //  putExtra("movie_poster_path", movie.poster_path)
                     }
                     startActivity(intent)
                 }
@@ -76,7 +68,7 @@ class PopularMoviesActivity : AppCompatActivity() {
         viewModel.getPopularMovies()
     }
 
-    }
+}
 
 
 

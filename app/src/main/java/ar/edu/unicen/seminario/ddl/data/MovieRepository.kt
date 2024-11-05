@@ -9,9 +9,7 @@ class MovieRepository  @Inject constructor(
     private val movieRemoteDataSourse: MovieRemoteDataSourse
 ) {
 
-
     suspend fun  getPopularMovies (
-
     ): List<Movie>? {
         return movieRemoteDataSourse.getPopularMovies()
 
@@ -24,10 +22,8 @@ class MovieRepository  @Inject constructor(
     }
 
     suspend fun getImage(
-
     ): Image? {
         return movieRemoteDataSourse.getImage()
     }
-
 
 }

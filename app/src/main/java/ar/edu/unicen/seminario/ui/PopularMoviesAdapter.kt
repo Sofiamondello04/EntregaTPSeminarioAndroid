@@ -26,7 +26,6 @@ class PopularMoviesAdapter(
 
     override fun onBindViewHolder(holder: MovieViewHolder, position: Int) {
         val movie= movies[position]
-        Log.d("PopularMoviesAdapter", "Movie at position $position: $movie")
         holder.bind(movie)
     }
     override fun getItemCount(): Int {
@@ -47,7 +46,6 @@ class PopularMoviesAdapter(
 
 
             binding.root.setOnClickListener {
-                Log.d("PopularMoviesAdapter", "Clicked movie ID: ${movie.id}")
                 onUserClick(movie) // Pasar el ID de la película
             }
         }

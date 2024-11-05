@@ -2,4 +2,10 @@
 <resources>
     <string name="app_name">PeliculasDB</string>
     <string name="back_button">Volver</string>
+    <string name="retry_button">Reintentar</string>
+    <string name="description">Descripcion</string>
+    <string name="genres">Géneros</string>
+    <string name="vote">Rating</string>
+    <string name="error_load_movie">Error en la carga de la película</string>
+    <string name="error_load_movies">Error en la carga de películas</string>
 </resources>
