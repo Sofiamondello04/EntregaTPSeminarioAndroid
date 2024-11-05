@@ -26,6 +26,10 @@ class PopularMoviesActivity : AppCompatActivity() {
         setContentView(binding.root)
         subscribeToViewModel()
         loadMovies()
+
+        binding.retryButton.setOnClickListener {
+            loadMovies()  // Reintentar la carga de películas populares
+        }
     }
 
     private fun subscribeToViewModel() {
@@ -38,26 +42,33 @@ class PopularMoviesActivity : AppCompatActivity() {
         }.launchIn(lifecycleScope)
 
         viewModel.popularMovies.onEach { movies ->
-            binding.recyclerView.layoutManager = LinearLayoutManager(this)
-            binding.recyclerView.adapter = PopularMoviesAdapter(movies ?: emptyList()) { movie ->
+            if(movies!= null) {
+                binding.recyclerView.layoutManager = LinearLayoutManager(this)
+                binding.recyclerView.adapter = PopularMoviesAdapter(movies ?: emptyList()) { movie ->
 
-                Log.d("PopularMoviesAdapter", "Clicked movie ID: ${movie.id}")  // Log para depurar
-                val intent = Intent(this, MovieDetailActivity::class.java).apply {
-                    putExtra("id", movie.id)
-                    Log.d("PopularMoviesActivity", "ID de la película: ${movie.id}")
-                    putExtra("movie_title", movie.title)
-                    putExtra("movie_overview", movie.overview)
-                    putExtra("movie_poster_path", movie.poster_path)
+                    Log.d(
+                        "PopularMoviesAdapter",
+                        "Clicked movie ID: ${movie.id}"
+                    )  // Log para depurar
+                    val intent = Intent(this, MovieDetailActivity::class.java).apply {
+                        putExtra("id", movie.id)
+                        Log.d("PopularMoviesActivity", "ID de la película: ${movie.id}")
+                      //  putExtra("movie_title", movie.title)
+                       // putExtra("movie_overview", movie.overview)
+                      //  putExtra("movie_poster_path", movie.poster_path)
+                    }
+                    startActivity(intent)
                 }
-                startActivity(intent)
             }
         }.launchIn(lifecycleScope)
 
         viewModel.error.onEach { error ->
             if (error) {
                 binding.errorView.visibility = android.view.View.VISIBLE
+                binding.retryButton.visibility = android.view.View.VISIBLE
             } else {
                 binding.errorView.visibility = android.view.View.INVISIBLE
+                binding.retryButton.visibility = android.view.View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
     }

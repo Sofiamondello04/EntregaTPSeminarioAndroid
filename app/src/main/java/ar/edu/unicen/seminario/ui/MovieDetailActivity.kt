@@ -32,10 +32,16 @@ class MovieDetailActivity : AppCompatActivity() {
         Log.d("MovieDetailActivity", "ID recibido: $id")  // Log para verificar el ID
 
         if (id != -1) {
+
+            showLoading()
+
+
             viewModel.getMovieDetail(id)
             viewModel.getImage()
             observeMovieDetails()
             observeImage()
+
+            observeError()
         }
 
 
@@ -44,10 +50,23 @@ class MovieDetailActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
         }
+
+        binding.retryButton.setOnClickListener {
+            if (id != -1) {
+                // Reintentar cargar los detalles de la película
+                showLoading()
+                viewModel.getMovieDetail(id)
+                viewModel.getImage()
+            }
+        }
     }
     private fun observeMovieDetails() {
         viewModel.movieDetails.onEach { movie ->
             if (movie != null) {
+
+                showLoading()
+
+
                 binding.movieTitle.text = movie.title
                 binding.movieOverview.text = movie.overview
                 binding.movieGenres.text = movie.genres.joinToString(", ")
@@ -84,6 +103,35 @@ class MovieDetailActivity : AppCompatActivity() {
                         .load(posterUrl)
                         .into(binding.moviePoster)
                 }
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+    private fun observeError() {
+        viewModel.error.onEach { error ->
+            if (error) {
+                // Mostrar vista de error y botón de reintento
+                binding.errorView.visibility = android.view.View.VISIBLE
+                binding.retryButton.visibility = android.view.View.VISIBLE
+            } else {
+                // Ocultar vista de error cuando la carga sea exitosa
+                binding.errorView.visibility = android.view.View.INVISIBLE
+                binding.retryButton.visibility = android.view.View.INVISIBLE
+            }
+        }.launchIn(lifecycleScope)
+    }
+
+   /* private fun showLoading(isLoading: Boolean) {
+        // Mostrar u ocultar el indicador de carga
+        binding.progressBar.visibility = if (isLoading) android.view.View.VISIBLE else android.view.View.INVISIBLE
+    }*/
+
+    private fun showLoading() {
+        viewModel.loading.onEach { loading ->
+            if (loading) {
+                binding.progressBar.visibility = android.view.View.VISIBLE
+            } else {
+                binding.progressBar.visibility = android.view.View.INVISIBLE
             }
         }.launchIn(lifecycleScope)
     }

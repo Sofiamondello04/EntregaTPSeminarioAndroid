@@ -32,7 +32,7 @@ class MovieViewModel @Inject constructor(
     private val _image = MutableStateFlow<Image?>(null)
     val image = _image.asStateFlow()
 
-    fun getPopularMovies (){
+   /* fun getPopularMovies (){
         viewModelScope.launch {
             _loading.value = true
             _error.value = false
@@ -49,9 +49,25 @@ class MovieViewModel @Inject constructor(
             }
 
         }
+    }*/
+
+    fun getPopularMovies() {
+        _loading.value = true
+        _error.value = false
+
+        viewModelScope.launch {
+            try {
+                val response = movieRepository.getPopularMovies()
+                _popularMovies.value = response
+                _loading.value = false
+            } catch (e: Exception) {
+                _error.value = true
+                _loading.value = false
+            }
+        }
     }
 
-    fun getMovieDetail(id: Int) {
+   /* fun getMovieDetail(id: Int) {
         viewModelScope.launch {
             _loading.value = true
             _error.value = false
@@ -72,6 +88,22 @@ class MovieViewModel @Inject constructor(
 
         }
 
+    }*/
+
+    fun getMovieDetail(id: Int) {
+        _loading.value = true
+        _error.value = false
+
+        viewModelScope.launch {
+            try {
+                val response = movieRepository.getMovie(id)
+                _movieDetails.value = response
+                _loading.value = false
+            } catch (e: Exception) {
+                _error.value = true
+                _loading.value = false
+            }
+        }
     }
 
     fun getImage() {
@@ -79,10 +111,10 @@ class MovieViewModel @Inject constructor(
             try {
 
                 Log.d("MovieViewModel", "Iniciando la obtención de la configuración de imagen.")
-                val image = movieRepository.getImage()
+                val response = movieRepository.getImage()
                 if (image != null) {
                     Log.d("MovieViewModel", "Configuración de imagen obtenida: $image")
-                    _image.value = image
+                    _image.value = response
                 } else {
                     Log.e("MovieViewModel", "No se pudo obtener la configuración de imagen.")
                 }

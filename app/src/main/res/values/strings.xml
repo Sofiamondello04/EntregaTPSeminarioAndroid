@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PeliculasDB</string>
     <string name="back_button">Volver</string>
+    <string name="retry_button">Reintentar</string>
 </resources>
