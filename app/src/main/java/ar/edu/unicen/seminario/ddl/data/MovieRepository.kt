@@ -1,6 +1,7 @@
 package ar.edu.unicen.seminario.ddl.data
 
 import ar.edu.unicen.seminario.ddl.models.Movie
+import ar.edu.unicen.seminario.ddl.models.MovieDetail
 import javax.inject.Inject
 
 class MovieRepository  @Inject constructor(
@@ -17,7 +18,7 @@ class MovieRepository  @Inject constructor(
 
     suspend fun getMovie(
         id: Int
-    ) : Movie? {
+    ) : MovieDetail? {
         return movieRemoteDataSourse.getMovie(id)
     }
 

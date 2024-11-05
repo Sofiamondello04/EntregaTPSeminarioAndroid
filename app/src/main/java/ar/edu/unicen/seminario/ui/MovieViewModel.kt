@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import ar.edu.unicen.seminario.ddl.data.MovieRepository
 import ar.edu.unicen.seminario.ddl.models.Movie
+import ar.edu.unicen.seminario.ddl.models.MovieDetail
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -24,7 +25,7 @@ class MovieViewModel @Inject constructor(
     private val _popularMovies = MutableStateFlow<List<Movie>?>(null)
     val popularMovies= _popularMovies.asStateFlow()
 
-    private val _movieDetails = MutableStateFlow<Movie?>(null)
+    private val _movieDetails = MutableStateFlow<MovieDetail?>(null)
     val movieDetails= _movieDetails.asStateFlow()
 
     fun getPopularMovies (){

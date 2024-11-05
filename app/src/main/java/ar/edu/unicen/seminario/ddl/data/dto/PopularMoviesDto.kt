@@ -15,15 +15,20 @@ class PopularMoviesDto(
     @SerializedName("overview")
     val overview: String
 
+
 ) {
 
     fun toMovie(): Movie {
         return Movie(
-            id= id,
-            title= title,
+            id = id,
+            title = title,
             poster_path = poster_path,
-            overview= overview)
+            overview = overview
+
+           )
 
 
     }
+
+
 }

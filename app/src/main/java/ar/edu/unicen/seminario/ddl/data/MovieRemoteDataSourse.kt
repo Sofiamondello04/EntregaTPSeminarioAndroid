@@ -3,6 +3,7 @@ package ar.edu.unicen.seminario.ddl.data
 import android.util.Log
 import ar.edu.unicen.seminario.BuildConfig
 import ar.edu.unicen.seminario.ddl.models.Movie
+import ar.edu.unicen.seminario.ddl.models.MovieDetail
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
@@ -23,16 +24,8 @@ class MovieRemoteDataSourse @Inject constructor(
                 if (response.isSuccessful) {
                     // Procesa la respuesta aquí
                     // return@withContext response.body()?.results?.map {it.toMovie()
-                    return@withContext response.body()?.results?.map {
-                        Log.d("MovieRepository", "Movie ID: ${it.id}, Title: ${it.title}, Overview: ${it.overview}, Poster Path: ${it.poster_path}")
-                        Movie(
-                            id = it.id,  // Asegúrate de que el id es correcto
-                            title = it.title,
-                            overview = it.overview,
-                            poster_path = it.poster_path
-                        )
-
-                    }?: emptyList()
+                    return@withContext response.body()?.results?.map {it.toMovie()}?: emptyList()
+                      //  Log.d("MovieRepository", "Movie ID: ${it.id}, Title: ${it.title}, Poster Path: ${it.poster_path}")
 
                 } else {
                     Log.e("MovieRemoteDataSourse", "Error: ${response.code()} - ${response.message()}")
@@ -50,7 +43,7 @@ class MovieRemoteDataSourse @Inject constructor(
 
     suspend fun  getMovie (
         id: Int
-    ): Movie? {
+    ): MovieDetail? {
         return withContext(Dispatchers.IO) {
             try {
 
