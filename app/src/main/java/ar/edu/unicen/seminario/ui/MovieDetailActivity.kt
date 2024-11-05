@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import ar.edu.unicen.seminario.databinding.ActivityMovieDetailBinding
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.onEach
@@ -67,15 +68,16 @@ class MovieDetailActivity : AppCompatActivity() {
         viewModel.image.onEach { config ->
             config?.let {
                 val baseUrl = it.base_url.replace("http://", "https://")
-                val posterSize = it.poster_sizes?.firstOrNull() ?: "w500"
                 val movieDetail = viewModel.movieDetails.value
 
                 movieDetail?.let { movie ->
-                    val posterPath = movie.poster_path
-                    val posterUrl = "$baseUrl/t/p/$posterSize$posterPath"
+                    val backdrop_path = movie.backdrop_path
+                    val posterUrl = "$baseUrl/t/p/w500$backdrop_path"
 
                     Glide.with(this)
                         .load(posterUrl)
+                        .fitCenter()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .into(binding.moviePoster)
                 }
             }

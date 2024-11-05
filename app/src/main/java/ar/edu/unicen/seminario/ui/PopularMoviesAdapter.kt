@@ -39,14 +39,14 @@ class PopularMoviesAdapter(
         fun bind(movie: Movie) {
 
             binding.movieTitle.text = movie.title
-           // binding.movieOverview.text = movie.overview
+
             Glide.with(itemView.context)
                 .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
                 .into(binding.moviePoster)
 
 
             binding.root.setOnClickListener {
-                onUserClick(movie) // Pasar el ID de la película
+                onUserClick(movie)
             }
         }
 

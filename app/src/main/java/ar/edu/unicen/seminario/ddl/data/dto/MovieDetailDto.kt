@@ -10,8 +10,8 @@ class MovieDetailDto(
     val id: Int,
     @SerializedName("title")
     val title: String,
-    @SerializedName("poster_path")
-    val poster_path: String,
+    @SerializedName("backdrop_path")
+    val backdrop_path: String,
     @SerializedName("overview")
     val overview: String,
     @SerializedName("genres")
@@ -25,7 +25,7 @@ class MovieDetailDto(
         return MovieDetail(
             id = id,
             title = title,
-            poster_path = poster_path,
+            backdrop_path = backdrop_path,
             overview = overview,
             genres = listGenres(),
             vote_average =vote_average
