@@ -49,6 +49,7 @@ class MovieDetailActivity : AppCompatActivity() {
                 binding.movieTitle.text = movie.title
                 binding.movieOverview.text = movie.overview
                 binding.movieGenres.text = movie.genres.joinToString(", ")
+                binding.movieVoteAverage.text = movie.vote_average.toString()
                 Glide.with(this)
                     .load("https://image.tmdb.org/t/p/w500${movie.poster_path}")
                     .into(binding.moviePoster)
